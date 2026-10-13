@@ -15,6 +15,7 @@ public class Generics {
         Box<Integer> b1 = new Box<>();
         b1.set(100);
         System.out.println(b1.get());
+        System.out.println(b1.get());
 
         Box<String> b2 = new Box<>();
         b2.set("Hello Java");
