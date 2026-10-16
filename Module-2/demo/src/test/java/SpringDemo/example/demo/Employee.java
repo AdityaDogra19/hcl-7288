@@ -1,4 +1,4 @@
-package com.example.demo;
+package SpringDemo.example.demo;
 
 public class Employee {
     public void display() {
