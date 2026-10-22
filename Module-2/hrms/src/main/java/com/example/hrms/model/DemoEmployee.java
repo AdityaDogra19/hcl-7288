@@ -1,10 +1,21 @@
 package com.example.hrms.model;
 
+import com.example.hrms.repository.EmpRepo;
+import com.example.hrms.repository.EmpRepoImp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DemoEmployee {
-    public int add(int a,int b){
-        return a+b;
+    @Autowired
+    private EmpRepoImp emprepo;
+
+    public int add(){
+        int a =20;
+        int b =30;
+        return emprepo.add(a,b);
+    }
+    public double squareRoot(){
+        return emprepo.squareroot(2000);
     }
 }

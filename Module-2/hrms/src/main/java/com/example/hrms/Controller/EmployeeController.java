@@ -14,11 +14,17 @@ public class EmployeeController {
     @GetMapping("/")
     public String Welcome(){
         return "Welcome to HRMS app";
+
     }
     @GetMapping("/add")
     public int sum(){
-        int result = demoemployee.add(20,50);
+        System.out.println("inside /add controller point");
+        int result = demoemployee.add();
         System.out.println("result from model="+result);
         return result;
+    }
+    @GetMapping("/sqrt")
+    public double getSquareRoot(){
+        return demoemployee.squareRoot();
     }
 }
