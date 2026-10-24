@@ -44,4 +44,12 @@ public class EmployeeServiceImp {
     public Employee getEmpById(long empId) {
         return empRepo.getEmpById(empId);
     }
+
+    public String deleteById(long empId) {
+        return empRepo.deleteById(empId);
+    }
+
+    public String updateById(long empId, Employee updatedEmp) {
+        return empRepo.updateById(empId, updatedEmp);
+    }
 }
