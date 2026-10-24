@@ -1,16 +1,19 @@
+
 package com.example.hclhrms.Controller;
 
 import com.example.hclhrms.entity.Employee;
 import com.example.hclhrms.Service.EmployeeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import java.util.List;
 
 @RestController
 public class EmployeeController {
+
     @Autowired
-    private EmployeeServiceImp empService;
+    private EmployeeServiceImp employeeService;
 
     @GetMapping("/")
     public String welcomeMsg() {
@@ -18,35 +21,17 @@ public class EmployeeController {
     }
 
     @GetMapping("/addemp")
-    public String addNewEmployee() {
-        return empService.addEmp();
+    public String addEmp() {
+        return employeeService.addEmp();
+    }
+
+    @GetMapping("/addempbulk")
+    public String addEmpBulk() {
+        return employeeService.addEmpBulk();
     }
 
     @GetMapping("/getemp")
     public List<Employee> getEmp() {
-        return empService.getEmp();
-    }
-
-    @GetMapping("/getemp/{empId}")
-    public Employee getEmpById(@PathVariable long empId) {
-        return empService.getEmpById(empId);
-    }
-
-    @GetMapping("/addemp/bulk")
-    public String addEmpBulk() {
-        return empService.addEmpBulk();
-    }
-
-    @DeleteMapping("/deleteemp/{empId}")
-    public String deleteById(@PathVariable long empId) {
-        return empService.deleteById(empId);
-    }
-
-    @PutMapping("/updateemp/{empId}")
-    public String updateById(
-            @PathVariable long empId,
-            @RequestBody Employee updatedEmp) {
-
-        return empService.updateById(empId, updatedEmp);
+        return employeeService.getEmp();
     }
 }
